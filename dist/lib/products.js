@@ -178,10 +178,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.listMatchingProducts = function(query, context, cb) {
-      var req;
+    ProductsClient.prototype.listMatchingProducts = function(arg, cb) {
+      var context, marketplaceId, query, req;
+      query = arg.query, context = arg.context, marketplaceId = arg.marketplaceId;
       req = new requests.ListMatchingProducts({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         Query: query,
         QueryContextId: context != null ? context : void 0
       });
@@ -192,10 +193,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getMatchingProduct = function(asins, cb) {
-      var req;
+    ProductsClient.prototype.getMatchingProduct = function(arg, cb) {
+      var asins, marketplaceId, req;
+      asins = arg.asins, marketplaceId = arg.marketplaceId;
       req = new requests.GetMatchingProduct({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         ASINList: asins != null ? asins : []
       });
       return this.invoke(req, {}, (function(_this) {
@@ -205,10 +207,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getMatchingProductForId = function(idType, ids, cb) {
-      var req;
+    ProductsClient.prototype.getMatchingProductForId = function(arg, cb) {
+      var idType, ids, marketplaceId, req;
+      idType = arg.idType, ids = arg.ids, marketplaceId = arg.marketplaceId;
       req = new requests.GetMatchingProductForId({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         IdType: idType,
         IdList: ids
       });
@@ -219,10 +222,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getCompetitivePricingForSKU = function(skus, cb) {
-      var req;
+    ProductsClient.prototype.getCompetitivePricingForSKU = function(arg, cb) {
+      var marketplaceId, req, skus;
+      skus = arg.skus, marketplaceId = arg.marketplaceId;
       req = new requests.GetCompetitivePricingForSKU({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         SellerSKUList: skus != null ? skus : []
       });
       return this.invoke(req, {}, (function(_this) {
@@ -232,10 +236,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getCompetitivePricingForASIN = function(asins, cb) {
-      var req;
+    ProductsClient.prototype.getCompetitivePricingForASIN = function(arg, cb) {
+      var asins, marketplaceId, req;
+      asins = arg.asins, marketplaceId = arg.marketplaceId;
       req = new requests.GetCompetitivePricingForASIN({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         ASINList: asins != null ? asins : []
       });
       return this.invoke(req, {}, (function(_this) {
@@ -245,10 +250,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getLowestOfferListingsForSKU = function(skus, condition, excludeMe, cb) {
-      var req;
+    ProductsClient.prototype.getLowestOfferListingsForSKU = function(arg, cb) {
+      var condition, excludeMe, marketplaceId, req, skus;
+      skus = arg.skus, condition = arg.condition, excludeMe = arg.excludeMe, marketplaceId = arg.marketplaceId;
       req = new requests.GetLowestOfferListingsForSKU({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         SellerSKUList: skus != null ? skus : [],
         ItemCondition: condition != null ? condition : void 0,
         ExcludeMe: excludeMe != null ? excludeMe : false
@@ -261,10 +267,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getLowestOfferListingsForASIN = function(asins, condition, cb) {
-      var req;
+    ProductsClient.prototype.getLowestOfferListingsForASIN = function(arg, cb) {
+      var asins, condition, marketplaceId, req;
+      asins = arg.asins, condition = arg.condition, marketplaceId = arg.marketplaceId;
       req = new requests.GetLowestOfferListingsForASIN({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         ASINList: asins != null ? asins : [],
         ItemCondition: condition != null ? condition : void 0
       });
@@ -275,10 +282,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getMyPriceForSKU = function(skus, condition, cb) {
-      var req;
+    ProductsClient.prototype.getMyPriceForSKU = function(arg, cb) {
+      var condition, marketplaceId, req, skus;
+      skus = arg.skus, condition = arg.condition, marketplaceId = arg.marketplaceId;
       req = new requests.GetMyPriceForSKU({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         SellerSKUList: skus != null ? skus : [],
         ItemCondition: condition != null ? condition : void 0
       });
@@ -289,10 +297,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getMyPriceForASIN = function(asins, condition, cb) {
-      var req;
+    ProductsClient.prototype.getMyPriceForASIN = function(arg, cb) {
+      var asins, condition, marketplaceId, req;
+      asins = arg.asins, condition = arg.condition, marketplaceId = arg.marketplaceId;
       req = new requests.GetMyPriceForASIN({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         ASINList: asins != null ? asins : [],
         ItemCondition: condition != null ? condition : void 0
       });
@@ -303,10 +312,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getProductCategoriesForSKU = function(sku, cb) {
-      var req;
+    ProductsClient.prototype.getProductCategoriesForSKU = function(arg, cb) {
+      var marketplaceId, req, sku;
+      sku = arg.sku, marketplaceId = arg.marketplaceId;
       req = new requests.GetProductCategoriesForSKU({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         SellerSKU: sku
       });
       return this.invoke(req, {}, (function(_this) {
@@ -316,10 +326,11 @@
       })(this));
     };
 
-    ProductsClient.prototype.getProductCategoriesForASIN = function(asin, cb) {
-      var req;
+    ProductsClient.prototype.getProductCategoriesForASIN = function(arg, cb) {
+      var asin, marketplaceId, req;
+      asin = arg.asin, marketplaceId = arg.marketplaceId;
       req = new requests.GetProductCategoriesForASIN({
-        MarketplaceId: this.marketplaceId,
+        MarketplaceId: marketplaceId != null ? marketplaceId : this.marketplaceId,
         ASIN: asin
       });
       return this.invoke(req, {}, (function(_this) {
